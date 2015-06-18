@@ -65,6 +65,7 @@
 {%
   set classes = [
     'node',
+    'grayborder box_shadow margin_bottom border_radius padding',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
@@ -83,13 +84,17 @@
     {% endif %}
     {{ title_suffix }}
     {% if display_submitted %}
+      <div class="submitted-by">
       <div class="node__meta">
         {{ author_picture }}
+        <div class="submitted-by-innerwrap">
         <span{{ author_attributes }}>
-          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          <span class="calendar"></span>{% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         </span>
+      </div>
         {{ metadata }}
       </div>
+    </div>
     {% endif %}
   </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>

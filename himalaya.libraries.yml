@@ -4,3 +4,8 @@ global-styling:
     theme:
       css/style.css: {}
       css/responsive.css: {}
+
+global-scripts:
+  version: VERSION
+  js:
+      js/custom.js: {}

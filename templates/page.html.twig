@@ -100,6 +100,7 @@
       </nav>
     </header>
     <div class="col-100 float_left">
+      <div class="container site-slogan-name">
        {% if site_name or site_slogan %}
           <div id="name-and-slogan"{% if hide_site_name and hide_site_slogan %} class="visually-hidden"{% endif %}>
             {% if site_name %}
@@ -124,6 +125,7 @@
           </div>
         {% endif %}
     </div>
+  </div>
     {{ page.header }}
     {% if messages %}
       <div id="messages">
@@ -137,10 +139,19 @@
         </aside>
       </div>
     {% endif %}
-    <div id="main-wrapper" class="clearfix">
-      <div id="main" class="clearfix">
-        {{ page.breadcrumb }}
-        <main id="content" class="column" role="main">
+    <div id="main-wrapper" class="clearfix paddingt">
+      <div id="main" class="clearfix container">
+        <div class="breadcrumb col-100 float_left">
+          {{ page.breadcrumb }}
+        </div>
+        {% if page.sidebar_first %}
+          <div id="sidebar" class="column sidebar float_left">
+            <aside class="section" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          </div>
+        {% endif %}
+        <main id="content" class="two-column float_left with-left-sidebar" role="main">
           <section class="section">
             <a id="main-content" tabindex="-1"></a>
             {{ title_prefix }}
@@ -162,13 +173,7 @@
             {{ page.content }}
           </section>
         </main>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="column sidebar">
-            <aside class="section" role="complementary">
-              {{ page.sidebar_first }}
-            </aside>
-          </div>
-        {% endif %}
+       
       </div>
     </div>
   </div>
