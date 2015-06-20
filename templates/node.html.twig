@@ -86,7 +86,9 @@
     {% if display_submitted %}
       <div class="submitted-by">
       <div class="node__meta">
-        {{ author_picture }}
+        <div class="user-picture">
+         {{ author_picture }}
+       </div>
         <div class="submitted-by-innerwrap">
         <span{{ author_attributes }}>
           <span class="calendar"></span>{% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
